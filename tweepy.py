@@ -332,10 +332,6 @@ for my_id_select in my_id:
 	with open(working_directory + "/_log.txt",'a') as f:
 		f.write(str(datetime.datetime.now()) + ": " + str(len(my_friends_ids)) + "/" + str(tmp_count) + "\n")
 
-	# _my_friends_ids.jsonが無ければ作成
-	if os.path.exists(file_path + "/_my_friends_ids.json") == False:
-		with open(file_path + "/_my_friends_ids.json",'w+') as f:
-			f.write(my_friends_ids)
 	# _my_friends_list.jsonが無ければ作成
 	if os.path.exists(file_path + "/_my_friends_list.json") == False:
 		with open(file_path + "/_my_friends_list.json",'w+') as f:
