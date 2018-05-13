@@ -83,7 +83,7 @@ def new_follow_ids_json(my_friends_list_def):
 			f = open(working_directory + "/" + follow_id + "/_maxid.txt" , 'w+')
 			f.close()
 	json_file = open(working_directory + "/_my_friends_list.json",'w')
-	json_file.write(my_friends_list_json)
+	json.dump(my_friends_list_json,json_file)
 	json_file.close()
 
 
@@ -334,8 +334,9 @@ for my_id_select in my_id:
 
 	# _my_friends_list.jsonが無ければ作成
 	if os.path.exists(file_path + "/_my_friends_list.json") == False:
-		with open(file_path + "/_my_friends_list.json",'w+') as f:
-			f.write(my_friends_list)
+		f = open(file_path + "/_my_friends_list.json",'w+')
+		json.dump(my_friends_list,f)
+		f.close()
 
 	# 新規フォローIDをjsonに保存
 	new_follow_ids_json(my_friends_list)
